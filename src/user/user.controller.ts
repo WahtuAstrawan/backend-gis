@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   Patch,
@@ -62,6 +63,15 @@ export class UserController {
 
     return {
       data: result,
+    };
+  }
+
+  @Delete('/current')
+  async logout(@Auth() user: User): Promise<WebResponse<boolean>> {
+    await this.userService.logout(user);
+
+    return {
+      data: true,
     };
   }
 }
