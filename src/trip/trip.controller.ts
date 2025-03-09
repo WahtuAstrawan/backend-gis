@@ -74,14 +74,14 @@ export class TripController {
 
   @Delete('/:id')
   @HttpCode(200)
-  async delete(
+  async remove(
     @Auth() user: User,
     @Param('id', ParseIntPipe) id: number,
-  ): Promise<WebResponse<TripResponse>> {
-    const result = await this.tripService.delete(user, id);
+  ): Promise<WebResponse<boolean>> {
+    const result = await this.tripService.remove(user, id);
 
     return {
-      data: result,
+      data: true,
     };
   }
 }

@@ -112,7 +112,7 @@ export class TripService {
     return this.toTripResponse(trip);
   }
 
-  async delete(user: User, id: number): Promise<TripResponse> {
+  async remove(user: User, id: number): Promise<TripResponse> {
     const isTripExists = await this.prismaService.trip.findFirst({
       where: {
         id: id,

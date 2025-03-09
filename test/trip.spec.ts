@@ -185,7 +185,7 @@ describe('TripController', () => {
 
       logger.info(response.body);
       expect(response.status).toBe(200);
-      expect(response.body.data.id).toBeDefined();
+      expect(response.body.data).toBeTruthy();
     });
 
     it('should not be able to delete trip if trip not exists', async () => {
