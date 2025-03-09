@@ -19,5 +19,21 @@ model User {
   name     String  @db.VarChar(100)
   token    String? @db.VarChar(100)
 
+  trips Trip[]
+
   @@map("users")
+}
+
+model Trip {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(100)
+  description String   @db.Text
+  latitude    Float
+  longitude   Float
+  createdAt   DateTime @default(now())
+  username    String   @db.VarChar(100)
+
+  user User @relation(fields: [username], references: [username])
+
+  @@map("trips")
 }
