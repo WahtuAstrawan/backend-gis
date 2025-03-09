@@ -27,8 +27,7 @@ describe('TripController', () => {
 
   describe('POST /api/trips', () => {
     beforeEach(async () => {
-      await testService.deleteTrips();
-      await testService.deleteUser();
+      await testService.deleteAll();
       await testService.createUser();
     });
 
@@ -67,8 +66,7 @@ describe('TripController', () => {
 
   describe('GET /api/trips', () => {
     beforeEach(async () => {
-      await testService.deleteTrips();
-      await testService.deleteUser();
+      await testService.deleteAll();
       await testService.createUser();
       await testService.createTrips();
     });
@@ -111,8 +109,7 @@ describe('TripController', () => {
 
   describe('PUT /api/trips/:id', () => {
     beforeEach(async () => {
-      await testService.deleteTrips();
-      await testService.deleteUser();
+      await testService.deleteAll();
       await testService.createUser();
       await testService.createTrips();
     });
@@ -171,8 +168,7 @@ describe('TripController', () => {
 
   describe('DELETE /api/trips/:id', () => {
     beforeEach(async () => {
-      await testService.deleteTrips();
-      await testService.deleteUser();
+      await testService.deleteAll();
       await testService.createUser();
       await testService.createTrips();
     });

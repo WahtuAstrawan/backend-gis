@@ -7,12 +7,9 @@ import { Trip } from '@prisma/client';
 export class TestService {
   constructor(private prismaService: PrismaService) {}
 
-  async deleteUser() {
-    await this.prismaService.user.deleteMany();
-  }
-
-  async deleteTrips() {
+  async deleteAll() {
     await this.prismaService.trip.deleteMany();
+    await this.prismaService.user.deleteMany();
   }
 
   async createUser() {
